@@ -1,3 +1,20 @@
 {{ define "home" }}
-This is the home template.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Search template:</h1>
+    {{ template "search" }}
+    
+    <h1>Library template:</h1>
+    {{ template "library" }}
+    
+    <h1>Lyric template:</h1>
+    {{ template "lyrics" }}
+</body>
+</html>
 {{ end }}

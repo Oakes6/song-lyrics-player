@@ -19,11 +19,11 @@ func main() {
 }
 
 func handleHome(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("index.html")
+	t, err := template.ParseFiles("home.html")
 	if err != nil {
 		panic(err)
 	}
-	t.ExecuteTemplate(w, "index", nil)
+	t.ExecuteTemplate(w, "home", nil)
 }
 
 func handlePlaylists(w http.ResponseWriter, r *http.Request) {
