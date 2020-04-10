@@ -11,16 +11,25 @@ func main() {
 		Addr: ":8080",
 	}
 
-   http.HandleFunc("/", handleHome)
+	http.HandleFunc("/", handleHome)
+	http.HandleFunc("/playlists", handlePlaylists)
 
-   fmt.Println("Listening on port 8080...")
+	fmt.Println("Listening on port 8080...")
 	server.ListenAndServe()
 }
 
 func handleHome(w http.ResponseWriter, r *http.Request) {
-   t, err := template.ParseFiles("index.html")
+	t, err := template.ParseFiles("index.html")
 	if err != nil {
-      panic(err)
+		panic(err)
 	}
-   t.ExecuteTemplate(w, "index", nil)
+	t.ExecuteTemplate(w, "index", nil)
+}
+
+func handlePlaylists(w http.ResponseWriter, r *http.Request) {
+	t, err := template.ParseFiles("playlists.html")
+	if err != nil {
+		panic(err)
+	}
+	t.ExecuteTemplate(w, "playlists.html", nil)
 }
